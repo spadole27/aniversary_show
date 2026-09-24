@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6 Years of Love</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="curtain-stage" aria-label="Opening curtain intro">
+      <div class="curtain left"></div>
+      <div class="curtain right"></div>
+      <div class="curtain-badge">
+        <span>6 YEARS</span>
+        <strong>OF LOVE</strong>
+      </div>
+    </div>
+    <div class="intro-slideshow" id="introSlideshow" aria-hidden="true">
+      <div class="intro-slide">
+        <img id="introImgA" src="" alt="" />
+        <img id="introImgB" src="" alt="" />
+      </div>
+      <div class="intro-overlay"></div>
+    </div>
+
+    <main class="page hidden">
+      <section class="hero">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">For My Favorite Person</p>
+          <h1>6 Years of Love</h1>
+          <p class="subtitle">
+            Every chapter of us feels like a beautiful movie — filled with laughter, warmth,
+            growth, and a love that keeps getting stronger.
+          </p>
+        </div>
+        <div class="floating-hearts" aria-hidden="true"></div>
+      </section>
+
+      <section class="love-scene">
+        <div class="scene-card">
+          <div class="planet">
+            <span class="planet-text" id="planetText">Memory</span>
+          </div>
+          <div class="heart-orbit heart-one"></div>
+          <div class="heart-orbit heart-two"></div>
+          <div class="heart-orbit heart-three"></div>
+          <div class="love-message">
+            <span>Our story</span>
+            <strong>is my favorite</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="memory-section">
+        <div class="section-heading">
+          <p>Our memories</p>
+          <h2>Little Moments, Big Love</h2>
+        </div>
+
+        <div class="memory-grid">
+          <div class="memory-card">
+            <span>01</span>
+            <h3>Warm laughter</h3>
+            <p>Every smile with you turns ordinary days into unforgettable ones.</p>
+          </div>
+          <div class="memory-card">
+            <span>02</span>
+            <h3>Steady love</h3>
+            <p>What we share grows deeper with every season and every memory.</p>
+          </div>
+          <div class="memory-card">
+            <span>03</span>
+            <h3>Forever us</h3>
+            <p>I want to keep choosing you, again and again, for all the years ahead.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section">
+        <div class="section-heading">
+          <p>Photo timeline</p>
+          <h2>Us Through the Years</h2>
+        </div>
+
+        <div class="slideshow">
+          <div class="import-photos">
+            <label for="photoFiles" class="import-button" aria-hidden="true">Import Photos</label>
+            <input id="photoFiles" type="file" accept="image/*" multiple style="display:none" />
+          </div>
+          <button class="nav-button prev" aria-label="Previous image">❮</button>
+          <div class="slide-frame">
+            <img id="slide-image" src="" alt="Anniversary memory" />
+            <div class="slide-caption">
+              <span id="slide-index">01</span>
+              <p id="slide-text">Our favorite memories</p>
+            </div>
+          </div>
+          <button class="nav-button next" aria-label="Next image">❯</button>
+        </div>
+
+          <!-- Cascade slider (thumbnails) shown after intro; auto-scrolls on mobile/desktop -->
+          <div class="cascade-slider" id="cascadeSlider" aria-hidden="true">
+            <div class="cascade-track" id="cascadeTrack"></div>
+          </div>
+      </section>
+
+      <section class="final-message">
+        <div class="heart-wrap">
+          <span class="mini-heart">❤</span>
+          <span class="mini-heart">❤</span>
+          <span class="mini-heart">❤</span>
+        </div>
+        <h2>I LOVE YOU</h2>
+        <p>
+          Six years, countless beautiful moments, and still my heart chooses you every day.
+          Thank you for being my love and my forever.
+        </p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
