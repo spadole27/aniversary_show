@@ -43,16 +43,9 @@
 
       <section class="love-scene">
         <div class="scene-card">
-          <div class="planet">
-            <span class="planet-text" id="planetText">Memory</span>
-          </div>
-          <div class="heart-orbit heart-one"></div>
-          <div class="heart-orbit heart-two"></div>
-          <div class="heart-orbit heart-three"></div>
-          <div class="love-message">
-            <span>Our story</span>
-            <strong>is my favorite</strong>
-          </div>
+          <button class="scene-photo-trigger" type="button" aria-label="Enlarge our photo">
+            <img class="scene-photo" src="Images/center.jpeg" alt="A favorite photo of us" />
+          </button>
         </div>
       </section>
 
@@ -89,7 +82,7 @@
 
         <div class="slideshow">
           <div class="import-photos">
-            <label for="photoFiles" class="import-button" aria-hidden="true">Import Photos</label>
+            <!-- <label for="photoFiles" class="import-button" aria-hidden="true">Import Photos</label> -->
             <input id="photoFiles" type="file" accept="image/*" multiple style="display:none" />
           </div>
           <button class="nav-button prev" aria-label="Previous image">❮</button>
@@ -122,6 +115,11 @@
         </p>
       </section>
     </main>
+
+    <dialog class="photo-lightbox" id="photoLightbox" aria-label="Enlarged anniversary photo">
+      <button class="photo-lightbox-close" type="button" aria-label="Close enlarged photo" autofocus>×</button>
+      <img id="lightboxImage" src="" alt="" />
+    </dialog>
 
     <script src="script.js"></script>
   </body>

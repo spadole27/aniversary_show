@@ -5,6 +5,28 @@ const floatingHearts = document.querySelector('.floating-hearts');
 const introSlideshowEl = document.getElementById('introSlideshow');
 const introImgA = document.getElementById('introImgA');
 const introImgB = document.getElementById('introImgB');
+const photoTrigger = document.querySelector('.scene-photo-trigger');
+const photoLightbox = document.getElementById('photoLightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+
+if (photoTrigger && photoLightbox && lightboxImage) {
+  const scenePhoto = photoTrigger.querySelector('.scene-photo');
+  const closeButton = photoLightbox.querySelector('.photo-lightbox-close');
+
+  photoTrigger.addEventListener('click', () => {
+    lightboxImage.src = scenePhoto.src;
+    lightboxImage.alt = scenePhoto.alt;
+    photoLightbox.showModal();
+  });
+
+  closeButton.addEventListener('click', () => photoLightbox.close());
+  photoLightbox.addEventListener('click', (event) => {
+    if (event.target === photoLightbox) photoLightbox.close();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && photoLightbox.open) photoLightbox.close();
+  });
+}
 
 // Timing (ms)
 const CURTAIN_OPEN_DELAY = 300;
@@ -137,13 +159,6 @@ let currentSlide = 0;
 function renderSlide(index) {
   const item = slides[index];
   if (!item) return;
-  // update planet text with current image name
-  const planetText = document.getElementById('planetText');
-  if (planetText && item.src) {
-    // extract filename from path (last part after /)
-    const filename = item.src.split('/').pop();
-    planetText.textContent = decodeURIComponent(filename);
-  }
   // pick a transition for variety
   const trans = ['fade','zoom','left','right','blur'];
   const t = trans[index % trans.length];

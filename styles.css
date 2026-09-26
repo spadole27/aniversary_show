@@ -354,110 +354,88 @@ button {
 }
 
 .scene-card {
-  position: relative;
-  width: min(800px, 100%);
-  height: 440px;
+  display: grid;
+  place-items: center;
+  width: min(210px, 50%);
+  aspect-ratio: 9 / 16;
   margin: 0 auto;
-  border-radius: 32px;
-  background: linear-gradient(180deg, rgba(35, 17, 26, 0.8), rgba(20, 12, 15, 0.9));
-  border: 1px solid rgba(255, 205, 221, 0.25);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
   overflow: hidden;
+  border-radius: 24px;
 }
 
-.planet {
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.scene-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scene-photo-trigger {
+  display: block;
+  width: 50%;
+  height: 50%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.scene-photo-trigger:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 4px;
+}
+
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  width: fit-content;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.photo-lightbox[open] {
+  display: block;
+}
+
+.photo-lightbox::backdrop {
+  background: rgba(12, 6, 9, 0.88);
+  backdrop-filter: blur(5px);
+}
+
+.photo-lightbox > img {
+  display: block;
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.photo-lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(255, 214, 132, 0.8), rgba(255, 134, 176, 0.6), rgba(97, 57, 98, 0.8));
-  box-shadow: 0 0 45px rgba(255, 174, 196, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.planet-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1rem, 3vw, 1.8rem);
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  max-width: 220px;
-  word-wrap: break-word;
-  letter-spacing: 0.05em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.heart-orbit {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background: #ff5d8f;
-  transform: rotate(45deg);
-  left: 50%;
-  top: 50%;
-  box-shadow: 0 0 16px rgba(255, 118, 163, 0.8);
-  animation: orbit 8s linear infinite;
-}
-
-.heart-orbit::before,
-.heart-orbit::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background: #ff5d8f;
-  border-radius: 50%;
-}
-
-.heart-orbit::before { top: -9px; left: 0; }
-.heart-orbit::after { left: -9px; top: 0; }
-
-.heart-one { animation-delay: 0s; }
-.heart-two { animation-delay: 1.5s; }
-.heart-three { animation-delay: 3s; }
-
-@keyframes orbit {
-  0% {
-    transform: rotate(45deg) translateX(0) translateY(0) scale(0.8);
-    opacity: 0;
-  }
-  20% { opacity: 1; }
-  50% {
-    transform: rotate(135deg) translateX(110px) translateY(-110px) scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(315deg) translateX(220px) translateY(0) scale(0.9);
-    opacity: 0;
-  }
-}
-
-.love-message {
-  position: absolute;
-  inset: auto 0 30px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  text-align: center;
-  z-index: 2;
-}
-
-.love-message span {
-  color: var(--pink);
-  text-transform: uppercase;
-  letter-spacing: 0.35rem;
-  font-size: 0.8rem;
-}
-
-.love-message strong {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: 0.08em;
+  background: rgba(20, 12, 15, 0.82);
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .memory-section,
